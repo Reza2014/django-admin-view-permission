@@ -25,13 +25,13 @@ def update_permissions(sender, app_config, verbosity, apps=global_apps,
                         [perm[0] for perm in model._meta.permissions]:
                     model._meta.permissions += (
                         (view_permission,
-                         'Can view %s' % model._meta.model_name),)
+                         'Can view %s' % model._meta.verbose_name),)
             else:
                 if view_permission not in [perm[0] for perm in
                                            model._meta.permissions]:
                     model._meta.permissions += (
                         ('view_%s' % model._meta.model_name,
-                         'Can view %s' % model._meta.model_name),)
+                         'Can view %s' % model._meta.verbose_name),)
 
 
 class AdminViewPermissionConfig(AppConfig):
